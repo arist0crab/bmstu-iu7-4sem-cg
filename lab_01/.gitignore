@@ -1,0 +1,10 @@
+# папки
+.vscode
+build
+release
+local
+local_data
+out
+
+# файлы
+.qmake.stash
