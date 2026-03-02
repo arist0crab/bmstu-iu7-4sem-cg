@@ -1,21 +1,17 @@
 #include "geometry.hpp"
 
 /* основные функции */
-status_t find_the_most_rhombus(const json_t &json_data, const points_t &points, quadrilateral_t &result_points);
-status_t process_quadrilateral(const quadrilateral_t &current_points, quadrilateral_t &result_points, double &min_avg, bool &first_avg_found);
+static status_t process_quadrilateral(const quadrilateral_t &current_points, quadrilateral_t &result_points, double &min_avg, bool &first_avg_found);
 
 /* вычисление ромбовитости фигуры и другие расчеты */
-status_t calculate_figure_avg(const quadrilateral_t &figure, double &figure_avg);
-status_t calculate_distance(const point_t &p1, const point_t &p2, double &distance);
+static status_t calculate_figure_avg(const quadrilateral_t &figure, double &figure_avg);
+static status_t calculate_distance(const point_t &p1, const point_t &p2, double &distance);
 
 /* проверка фигуры на валидность */
-status_t check_figure_valid(const quadrilateral_t &figure);
-status_t points_lie_on_one_line(const quadrilateral_t &quadrilateral);
-status_t sides_intersect(const point_t &p1, const point_t &p2, const point_t &p3, const point_t &p4);
-status_t calculate_orientation(const point_t &p1, const point_t &p2, const point_t &p3, double &result_orientation);
-
-/* чтение данных из json */
-status_t read_points_from_json(const json_t &json, points_t &points);
+static status_t check_figure_valid(const quadrilateral_t &figure);
+static status_t points_lie_on_one_line(const quadrilateral_t &quadrilateral);
+static status_t sides_intersect(const point_t &p1, const point_t &p2, const point_t &p3, const point_t &p4);
+static status_t calculate_orientation(const point_t &p1, const point_t &p2, const point_t &p3, double &result_orientation);
 
 
 status_t find_the_most_rhombus(const json_t &json_data, const points_t &points, quadrilateral_t &result_points)
@@ -50,7 +46,7 @@ status_t find_the_most_rhombus(const json_t &json_data, const points_t &points, 
 }
 
 
-status_t process_quadrilateral(const quadrilateral_t &current_points, quadrilateral_t &result_points, double &min_avg, bool &first_avg_found)
+static status_t process_quadrilateral(const quadrilateral_t &current_points, quadrilateral_t &result_points, double &min_avg, bool &first_avg_found)
 {
     double current_avg;
 
@@ -78,7 +74,7 @@ status_t process_quadrilateral(const quadrilateral_t &current_points, quadrilate
 }
 
 
-status_t calculate_figure_avg(const quadrilateral_t &figure, double &figure_avg)
+static status_t calculate_figure_avg(const quadrilateral_t &figure, double &figure_avg)
 {
     double sides_sum, sides_avg;
     double side_1, side_2, side_3, side_4;
@@ -103,7 +99,7 @@ status_t calculate_figure_avg(const quadrilateral_t &figure, double &figure_avg)
 }
 
 
-status_t calculate_distance(const point_t &p1, const point_t &p2, double &distance)
+static status_t calculate_distance(const point_t &p1, const point_t &p2, double &distance)
 {
     double dx = p2.x() - p1.x();
     double dy = p2.y() - p1.y();
@@ -114,7 +110,7 @@ status_t calculate_distance(const point_t &p1, const point_t &p2, double &distan
 }
 
 
-status_t check_figure_valid(const quadrilateral_t &figure)
+static status_t check_figure_valid(const quadrilateral_t &figure)
 {
     status_t sc = SUCCESS_CODE;
 
@@ -130,7 +126,7 @@ status_t check_figure_valid(const quadrilateral_t &figure)
 }
 
 
-status_t sides_intersect(const point_t &p1, const point_t &p2, const point_t &p3, const point_t &p4)
+static status_t sides_intersect(const point_t &p1, const point_t &p2, const point_t &p3, const point_t &p4)
 {
     status_t sc = SUCCESS_CODE;
     double o1, o2, o3, o4;
@@ -147,7 +143,7 @@ status_t sides_intersect(const point_t &p1, const point_t &p2, const point_t &p3
 }
 
 
-status_t points_lie_on_one_line(const quadrilateral_t &quadrilateral)
+static status_t points_lie_on_one_line(const quadrilateral_t &quadrilateral)
 {
     status_t sc = SUCCESS_CODE;
     double triple_points_orientation_1;
@@ -163,25 +159,13 @@ status_t points_lie_on_one_line(const quadrilateral_t &quadrilateral)
 }
 
 
-status_t calculate_orientation(const point_t &p1, const point_t &p2, const point_t &p3, double &result_orientation)
+static status_t calculate_orientation(const point_t &p1, const point_t &p2, const point_t &p3, double &result_orientation)
 {
     result_orientation = (p2.x() - p1.x()) * (p3.y() - p1.y()) - (p2.y() - p1.y()) * (p3.x() - p1.x());
     return SUCCESS_CODE;
 }
 
-
-status_t read_points_from_json(const json_t &json, points_t &points)
+status_t is_quadrilateral_valid(const quadrilateral_t &quad)
 {
-    point_t point;
-
-    points.clear();
-
-    for (const auto &item : json)
-    {
-        point.setX(item["x"]);
-        point.setY(item["y"]);
-        points.push_back(point);
-    }
-
-    return SUCCESS_CODE;
+    return (quad.i1 > 0 && quad.i2 > 0 && quad.i3 > 0 && quad.i4 > 0) ? SUCCESS_CODE : ERR_EMPTY_POINTS;
 }

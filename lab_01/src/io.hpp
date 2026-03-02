@@ -2,7 +2,7 @@
 #define __READ_JSON_HPP__
 
 #include "status.hpp"
-#include "json.hpp"
+#include "json_nlohmann.hpp"
 #include "geometry.hpp"
 #include <fstream>
 #include <iostream>

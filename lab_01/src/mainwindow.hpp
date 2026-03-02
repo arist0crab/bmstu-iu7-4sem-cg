@@ -3,11 +3,13 @@
 
 #include "status.hpp"
 #include "manager.hpp"
+#include "messages.hpp"
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QGraphicsScene>
+#include "ui_mainwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -24,6 +26,7 @@ class MainWindow : public QMainWindow
 
         status_t draw_solution_all_points();
         status_t draw_scaled_solution();
+        status_t flush_points_to_table();
         status_t find_solution();
 
 
@@ -31,7 +34,12 @@ class MainWindow : public QMainWindow
         Ui::MainWindow *ui; 
 
     private slots:
+        status_t on_ButtonSaveResult_clicked();
+        status_t on_ButtonDeletePoint_clicked();
+        status_t on_ButtonChangePoint_clicked();
+        status_t on_ButtonAddPoint_clicked();
         status_t on_ButtonLoadJson_clicked();
+        status_t on_ButtonClearAll_clicked();
         status_t on_ButtonShowAllPoints_clicked();
         status_t on_ButtonShowOnlySolution_clicked();
 };

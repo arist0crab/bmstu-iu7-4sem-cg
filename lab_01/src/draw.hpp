@@ -2,9 +2,10 @@
 #define __DRAW_H__
 
 #include "status.hpp"
-#include "json.hpp"
+#include "json_nlohmann.hpp"
 #include "geometry.hpp"
 #include <QGraphicsScene>
+#include <QGraphicsTextItem>
 
 const QColor ORDINARY_COLOR(123, 140, 123);
 const QColor SOLUTION_COLOR(255, 94, 0);
@@ -33,7 +34,8 @@ typedef struct
     double max_y;
 } view_box_t;
 
-status_t draw_solution_all_points(const points_t &points, const quadrilateral_t &quad, draw_scene_t &draw_scene);
-status_t draw_scaled_solution(const points_t &points, const quadrilateral_t &result_points, draw_scene_t &draw_scene);
+status_t draw_scene_reset(draw_scene_t &draw_scene);
+status_t draw_solution_all_points(draw_scene_t &draw_scene, const points_t &points, const json_t &json_data, const quadrilateral_t &quad);
+status_t draw_scaled_solution(draw_scene_t &draw_scene, const points_t &points, const json_t &json_data, const quadrilateral_t &quad);
 
 #endif
