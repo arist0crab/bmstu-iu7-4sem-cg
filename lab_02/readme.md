@@ -137,3 +137,4 @@ JSON-файл выше сообщает нам о том, что рисунок 
 - [drawPoints](https://doc.qt.io/qt-6/qpainter.html#drawPoints) ✅
 - [drawPolygon](https://doc.qt.io/qt-6/qpainter.html#drawPolygon) ✅
 - [drawPolyline](https://doc.qt.io/qt-6/qpainter.html#drawPolyline) ✅
+
