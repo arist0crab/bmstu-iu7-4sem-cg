@@ -2,6 +2,7 @@
 #define __STUDENT_DEEPSEEKOV_HPP__
 
 #include "status.hpp"
+#include "ellipse.hpp"
 #include "picture.hpp"
 
 class StudentDeepseekov : public Picture
@@ -15,7 +16,9 @@ class StudentDeepseekov : public Picture
     private:
         status_t build_student_deepseekov()
         {
-            // TODO собрать дипсикова
+            this->add_shape(std::make_unique<Ellipse>(200, 200, 80, 40, 45, Qt::blue));
+
+            return SUCCESS_CODE;
         }
 };
 

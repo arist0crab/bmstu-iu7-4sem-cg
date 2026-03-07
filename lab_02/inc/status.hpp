@@ -4,6 +4,9 @@
 typedef enum
 {
     SUCCESS_CODE,
+    ERR_SHAPE_PARAM,
+    ERR_DRAW_PARAM,
+    ERR_SCALE_PARAM,
     ERR_UNDEFINED
 } status_t;
 
