@@ -2,6 +2,7 @@
 #define __MAINWINDOW_HPP__
 
 #include "status.hpp"
+#include "canvas.hpp"
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QGraphicsScene>
@@ -25,6 +26,7 @@ class MainWindow : public QMainWindow
 
     private:
         Ui::MainWindow *ui;
+        Canvas *canvas;
 
     // private slots:
     //     // TOOD

@@ -23,7 +23,6 @@ class Ellipse : public Shape
 
             painter.save();
             painter.setPen(QPen(this->color, 1));
-            painter.setRenderHint(QPainter::Antialiasing, true);
             painter.setBrush(this->filling ? QBrush(color) : Qt::NoBrush);
 
             QPolygonF ellipse_polygon;
