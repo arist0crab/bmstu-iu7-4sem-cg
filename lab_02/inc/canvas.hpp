@@ -25,6 +25,11 @@ class Canvas : public QWidget
         }
 
     public slots:
+        status_t move(const double dx, const double dy)
+        {
+            return student_deepseekov.move(dx, dy);
+        }
+
         status_t rotate(const double angle)
         {
             student_deepseekov.rotate(angle);

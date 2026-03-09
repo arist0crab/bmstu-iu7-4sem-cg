@@ -18,6 +18,7 @@ class StudentDeepseekov : public Picture
         StudentDeepseekov(double x, double y, double scale = 1.0) : Picture(x, y)
         {
             build_student_deepseekov();
+            // TODO центрировать дипсикова при инициализации
         }
 
     private:

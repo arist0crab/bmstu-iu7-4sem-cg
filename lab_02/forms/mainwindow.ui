@@ -212,7 +212,7 @@ QDoubleSpinBox::down-arrow {
       </property>
       <layout class="QGridLayout" name="gridLayout_5">
        <item row="2" column="0" colspan="2">
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="ButtonMove">
          <property name="text">
           <string>Переместить</string>
          </property>
@@ -251,10 +251,24 @@ QDoubleSpinBox::down-arrow {
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+        <widget class="QDoubleSpinBox" name="InputMoveY">
+         <property name="minimum">
+          <double>-100.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>100.000000000000000</double>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+        <widget class="QDoubleSpinBox" name="InputMoveX">
+         <property name="minimum">
+          <double>-100.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>100.000000000000000</double>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

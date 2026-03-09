@@ -9,10 +9,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 MainWindow::~MainWindow() { delete ui; }
 
-status_t MainWindow::on_ButtonRotate_clicked()
+status_t MainWindow::on_ButtonMove_clicked()
 {
-    double rotation_angle = ui->RotationInput->value();
-    canvas->rotate(rotation_angle);
+    double dx = ui->InputMoveX->value();
+    double dy = ui->InputMoveY->value();
 
-    return SUCCESS_CODE;
+    return canvas->move(dx, dy);
 }
+
+// status_t MainWindow::on_ButtonRotate_clicked()
+// {
+//     double rotation_angle = ui->RotationInput->value();
+//     canvas->rotate(rotation_angle);
+
+//     return SUCCESS_CODE;
+// }
+

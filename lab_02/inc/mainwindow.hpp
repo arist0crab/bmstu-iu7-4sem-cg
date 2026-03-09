@@ -29,7 +29,8 @@ class MainWindow : public QMainWindow
         Canvas *canvas;
 
     private slots:
-        status_t on_ButtonRotate_clicked();
+        status_t on_ButtonMove_clicked();
+        // status_t on_ButtonRotate_clicked();
 };
 
 #endif
