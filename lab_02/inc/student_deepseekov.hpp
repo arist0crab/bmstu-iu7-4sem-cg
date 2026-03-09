@@ -24,37 +24,37 @@ class StudentDeepseekov : public Picture
         status_t build_student_deepseekov()
         {
             // тело
-            this->add_shape(std::make_unique<Arc>(58.2, 74, 48.5, 152, 288, true, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Arc>(76.7, 72.7, 67, 356, 175, true, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Arc>(116.4, 148, 97, 152, 288, true, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Arc>(153.4, 145.4, 134, 356, 175, true, DEEPSEEKOV_SKIN));
 
             // плавник
-            this->add_shape(std::make_unique<Arc>(97.5, 118, 9, 124, 265, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(72, 122), QPointF(81.5, 122), QPointF(93, 131), QPointF(99, 124.5) }, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(128, 30), QPointF(162, 20), QPointF(123, 14.5), QPointF(118, 20) }, true, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Arc>(195, 236, 18, 124, 265, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(144, 244), QPointF(163, 244), QPointF(186, 262), QPointF(198, 249) }, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(256, 60), QPointF(324, 40), QPointF(246, 29), QPointF(236, 40) }, true, DEEPSEEKOV_SKIN));
             
             // линии хвоста и спины
-            this->add_shape(std::make_unique<Ellipse>(130, 107, 11, 11, 0, true, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Ellipse>(152.5, 101.5, 11, 11, 0, true, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Arc>(155.5, 123.5, 11.5, 26, 97, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Arc>(133.5, 127, 8.5, 90, 186, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(119.5, 109.5), QPointF(122, 131), QPointF(125.5, 128) }, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(166, 119), QPointF(172, 120), QPointF(163.5, 99.5) }, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(143, 79), QPointF(146, 88.5), QPointF(155, 91) }, false, DEEPSEEKOV_SKIN));
-            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(123.5, 98), QPointF(131, 92), QPointF(129, 82.5), QPointF(93, 111.5) }, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Ellipse>(260, 214, 22, 22, 0, true, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Ellipse>(305, 203, 22, 22, 0, true, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Arc>(311, 247, 23, 26, 97, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Arc>(267, 254, 17, 90, 186, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(239, 219), QPointF(244, 262), QPointF(251, 256) }, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(332, 238), QPointF(344, 240), QPointF(327, 199) }, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(286, 158), QPointF(292, 177), QPointF(310, 182) }, false, DEEPSEEKOV_SKIN));
+            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(247, 196), QPointF(262, 184), QPointF(258, 165), QPointF(186, 223) }, false, DEEPSEEKOV_SKIN));
             
             // линии надбровной дуги
-            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(102.5, 71), QPointF(104.5, 63.5), QPointF(110, 60), QPointF(118.5, 59.5), QPointF(115, 69.5), QPointF(105.5, 79.5) }, false, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<Arc>(101, 76, 6.5, 180, 307, false, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<Arc>(97, 71.5, 6, 238, 359, false, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<Ellipse>(97, 71.5, 2, 2, 0, true, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Polyline>(std::vector<QPointF>{ QPointF(205, 142), QPointF(209, 127), QPointF(220, 120), QPointF(237, 119), QPointF(230, 139), QPointF(211, 159) }, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Arc>(202, 152, 13, 180, 307, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Arc>(194, 143, 12, 238, 359, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Ellipse>(194, 143, 4, 4, 0, true, DEEPSEEKOV_SPOTS));
 
             // пятно на пузике
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(69.5, 40.5), QPointF(89, 26.5) }, false, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(89, 26.5), QPointF(98, 17.5), QPointF(108, 23) }, true, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<Arc>(67, 38, 4, 315, 135, false, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<Ellipse>(60.5, 31, 6, 6, 0, true, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(58, 26), QPointF(25, 44.5), QPointF(18.7, 54.5), QPointF(23, 85) }, true, DEEPSEEKOV_SPOTS));
-            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(23, 85), QPointF(64.5, 85), QPointF(89, 26.5), QPointF(108, 23) }, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(139, 81), QPointF(178, 53) }, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(178, 53), QPointF(196, 35), QPointF(216, 46) }, true, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Arc>(134, 76, 8, 315, 135, false, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<Ellipse>(121, 62, 12, 12, 0, true, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(116, 52), QPointF(50, 89), QPointF(37.4, 109), QPointF(46, 170) }, true, DEEPSEEKOV_SPOTS));
+            this->add_shape(std::make_unique<BezierCurve>(std::vector<QPointF>{ QPointF(46, 170), QPointF(129, 170), QPointF(178, 53), QPointF(216, 46) }, false, DEEPSEEKOV_SPOTS));
 
             return SUCCESS_CODE;
         }
