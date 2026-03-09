@@ -11,11 +11,12 @@
 class Shape
 {
     public:
-        Shape(double x, double y,bool filling = false, QColor color = Qt::black) : center(x, y), color(color), filling(filling) {};
+        Shape(double x, double y, bool filling = false, QColor color = Qt::black) : center(x, y), color(color), filling(filling) {};
         virtual ~Shape() {};
 
         virtual status_t draw(QPainter &painter) const = 0;
         virtual status_t rotate(const double angle) = 0;
+        virtual status_t rotate_around(const QPointF &rotation_center, const double angle) = 0;
         virtual status_t move(const double dx, const double dy) = 0;
         virtual status_t scale(const double kx, const double ky) = 0;
 

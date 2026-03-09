@@ -86,14 +86,14 @@ QDoubleSpinBox::down-arrow {
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="2" column="0" colspan="2">
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="ButtonRotate">
          <property name="text">
           <string>Повернуть</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0" colspan="2">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+        <widget class="QDoubleSpinBox" name="RotationInput"/>
        </item>
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="label_5">

@@ -5,6 +5,7 @@
 #include "shape.hpp"
 #include <cmath>
 
+
 class Ellipse : public Shape
 {
     public:
@@ -18,12 +19,12 @@ class Ellipse : public Shape
 
         status_t draw(QPainter &painter) const override
         {
-            if (rx <= 0 || ry <= 0)
+            if (this->rx <= 0 || this->ry <= 0)
                 return ERR_DRAW_PARAM;
 
             painter.save();
             painter.setPen(QPen(this->color, 1));
-            painter.setBrush(this->filling ? QBrush(color) : Qt::NoBrush);
+            painter.setBrush(this->filling ? QBrush(this->color) : Qt::NoBrush);
 
             QPolygonF ellipse_polygon;
             ellipse_approximation(ellipse_polygon);
@@ -36,8 +37,28 @@ class Ellipse : public Shape
 
         status_t rotate(const double angle) override
         {
-            this->rotation_angle = fmod(this->rotation_angle + angle, 360);
+            return rotate_around(this->center, angle);
+        }
 
+
+        status_t rotate_around(const QPointF &rotation_center, const double angle)  override
+        {
+            if (this->rx <= 0 || this->ry <= 0)
+                return ERR_ROTATE_PARAM;
+
+            QPointF relative_center = this->center - rotation_center;
+    
+            double angle_rad = angle * M_PI / 180.0;
+            double cos_a = cos(angle_rad);
+            double sin_a = sin(angle_rad);
+            
+            double new_x = relative_center.x() * cos_a - relative_center.y() * sin_a;
+            double new_y = relative_center.x() * sin_a + relative_center.y() * cos_a;
+            
+            this->center = rotation_center + QPointF(new_x, new_y);
+            
+            rotation_angle = fmod(rotation_angle + angle, 360.0);
+            
             return SUCCESS_CODE;
         }
 

@@ -11,6 +11,9 @@ class Picture : public Shape
     public: 
         Picture(double x = 0, double y = 0) : Shape(x, y) {}
         ~Picture() {};
+        // TODO надо сделать так, чтобы center рассчитывался при инициализации фигуры
+        // если при инициализации нет фигур, то он должен переопределяться позже при появлении
+        // новых фигур
 
         status_t add_shape(std::unique_ptr<Shape> shape_ptr)
         {
@@ -18,6 +21,8 @@ class Picture : public Shape
                 return ERR_SHAPE_PARAM;
 
             shapes.push_back(std::move(shape_ptr));
+
+            // TODO пересчет центра
             
             return SUCCESS_CODE;
         }
@@ -32,8 +37,16 @@ class Picture : public Shape
 
         status_t rotate(const double angle) override
         {
-            for (const auto &shape : this->shapes)
-                shape->rotate(angle);
+            return this->rotate_around(this->center, angle);
+        }
+
+        status_t rotate_around(const QPointF &rotation_center, const double angle) 
+        {
+            if (this->shapes.empty())
+                return ERR_ROTATE_PARAM;
+
+            for (auto &shape : this->shapes)
+                shape->rotate_around(rotation_center, angle);
 
             return SUCCESS_CODE;
         }

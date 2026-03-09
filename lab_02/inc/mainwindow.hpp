@@ -28,8 +28,8 @@ class MainWindow : public QMainWindow
         Ui::MainWindow *ui;
         Canvas *canvas;
 
-    // private slots:
-    //     // TOOD
+    private slots:
+        status_t on_ButtonRotate_clicked();
 };
 
 #endif

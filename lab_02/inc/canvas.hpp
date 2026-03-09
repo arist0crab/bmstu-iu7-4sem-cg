@@ -24,8 +24,14 @@ class Canvas : public QWidget
             student_deepseekov.draw(painter);
         }
 
-    // public slots:
-        // TODO
+    public slots:
+        status_t rotate(const double angle)
+        {
+            student_deepseekov.rotate(angle);
+            update();
+
+            return SUCCESS_CODE;
+        }
 
     private:
         StudentDeepseekov student_deepseekov;
@@ -37,6 +43,9 @@ class Canvas : public QWidget
             painter.fillPath(path, Qt::white);
 
             painter.setRenderHint(QPainter::Antialiasing);
+            painter.translate(0, height());
+            painter.scale(1, -1);
+            painter.setClipRect(rect());
 
             return SUCCESS_CODE;
         }
