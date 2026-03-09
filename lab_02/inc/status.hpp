@@ -8,6 +8,7 @@ typedef enum
     ERR_DRAW_PARAM,
     ERR_SCALE_PARAM,
     ERR_ROTATE_PARAM,
+    ERR_BEZIER_BUILD,
     ERR_UNDEFINED
 } status_t;
 
