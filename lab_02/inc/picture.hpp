@@ -9,7 +9,8 @@
 class Picture : public Shape
 {
     public: 
-        Picture(double x = 0, double y = 0) : Shape(x, y) {}
+        Picture(const double canvas_width, const double canvas_height) : Shape(canvas_width / 2, canvas_height / 2) {}
+
         ~Picture() {};
         // TODO надо сделать так, чтобы center рассчитывался при инициализации фигуры
         // если при инициализации нет фигур, то он должен переопределяться позже при появлении
@@ -68,6 +69,12 @@ class Picture : public Shape
                 shape->scale(kx, ky);
             
             return SUCCESS_CODE;
+        }
+
+        status_t move_picture_to_canvas_center(double const canvas_width, double const canvas_height)
+        {
+            // TODO написать нормальную функцию центрирования с учетом размеров самой картинки
+            return move(canvas_width / 2, canvas_height / 2);
         }
 
     private:

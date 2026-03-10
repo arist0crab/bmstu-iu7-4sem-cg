@@ -47,6 +47,12 @@ $(RELEASE_DIR)/gui-app.exe: $(RELEASE_DIR) | $(BUILD_DIR)
 $(BUILD_DIR) $(RELEASE_DIR):
 	mkdir -p $@
 
+rebuild:
+	make clean
+	make 
+	./release/gui-app.exe
 
 clean:
 	rm -rf $(BUILD_DIR) $(RELEASE_DIR)
+
+.PHONY: rebuild clean

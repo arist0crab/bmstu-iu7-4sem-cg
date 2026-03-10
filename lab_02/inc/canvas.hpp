@@ -11,9 +11,9 @@ class Canvas : public QWidget
     Q_OBJECT
 
     public:
-        Canvas(QWidget* parent = nullptr) : QWidget(parent), student_deepseekov(400, 300, 1.5) 
+        Canvas(QWidget* parent = nullptr) : QWidget(parent), student_deepseekov(300, 300) 
         {
-            setMinimumSize(600, 400);
+            // TODO в конструктор студента передавать не захардкоженные координаты, а реальные
         };
 
     protected:
