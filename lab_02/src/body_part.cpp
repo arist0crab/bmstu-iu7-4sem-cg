@@ -66,7 +66,7 @@ double BodyPart::calculate_ellipse_point_angle(const double center_x, const doub
 }
 
 
-void BodyPart::add_arc(const double center_x, const double center_y, const double width, const double height, const double p1_x, const double p1_y, const double p2_x, const double p2_y)
+void BodyPart::add_arc(const double center_x, const double center_y, const double width, const double height, const double p1_x, const double p1_y, const double p2_x, const double p2_y, bool clockwise)
 {
     double rectangle_left_top_x = center_x - width / 2;
     double rectangle_left_top_y = center_y - height / 2;
@@ -74,7 +74,7 @@ void BodyPart::add_arc(const double center_x, const double center_y, const doubl
     double start_angle = calculate_ellipse_point_angle(center_x, center_y, p1_x, p1_y);
     double end_angle = calculate_ellipse_point_angle(center_x, center_y, p2_x, p2_y);
 
-    if (start_angle > end_angle)
+    if (start_angle > end_angle && clockwise)
         start_angle -= 360;
 
     const double sweep_angle = end_angle - start_angle;
@@ -112,7 +112,8 @@ void BodyPart::add_polyline(const std::vector<QPointF> &points)
         path.lineTo(points[i]);
 }
 
-void BodyPart::close_path()
+void BodyPart::unit_body_part_pathes(BodyPart &body_part)
 {
-    this->path.closeSubpath();
+    this->set_color(body_part.color);
+    this->path.connectPath(body_part.path);
 }
