@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QPainterPath>
 #include "status.hpp"
+#include "student_deepseekov.hpp"
+
 
 class Canvas : public QWidget
 {
@@ -20,7 +22,11 @@ class Canvas : public QWidget
         void paintEvent(QPaintEvent* event) override
         {
             QPainter painter(this);
+
+            // настройка холста
             set_up_canvas(painter);
+
+            student_deepseekov.draw(painter);
         }
 
     public slots:
@@ -39,6 +45,8 @@ class Canvas : public QWidget
         }
 
     private:
+        StudentDeepseekov student_deepseekov;
+
         status_t set_up_canvas(QPainter &painter)
         {
             QPainterPath path;
