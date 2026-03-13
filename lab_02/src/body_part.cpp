@@ -9,14 +9,10 @@ BodyPart::BodyPart(const double init_x, const double init_y)
 
 BodyPart::~BodyPart() {};
 
-
 status_t BodyPart::draw(QPainter &painter) const
 {
     if (bodypart_contains_no_points())
         return ERR_BODYPART_CONTAINS_NO_POINTS;
-
-    QPainterPath closedPath = this->path;
-    closedPath.closeSubpath();
 
     QPen pen = QPen(this->color, default_pen_width);
     painter.setPen(pen);
@@ -83,7 +79,6 @@ void BodyPart::add_arc(const double center_x, const double center_y, const doubl
 
     const double sweep_angle = end_angle - start_angle;
 
-    this->path.moveTo(p1_x, p1_y);
     this->path.arcTo(rectangle_left_top_x, rectangle_left_top_y, width, height, start_angle, sweep_angle);
 }
 
@@ -104,7 +99,6 @@ ellipse_quarter_t BodyPart::calculate_ellipse_point_quarter(const double center_
 
 void BodyPart::add_bezier_four_points(const double p1_x, const double p1_y, const double p2_x, const double p2_y, const double p3_x, const double p3_y, const double p4_x, const double p4_y)
 {
-    this->path.moveTo(p1_x, p1_y);
     this->path.cubicTo(p2_x, p2_y, p3_x, p3_y, p4_x, p4_y);
 }
 
@@ -114,7 +108,11 @@ void BodyPart::add_polyline(const std::vector<QPointF> &points)
     if (points.empty())
         return;
 
-    this->path.moveTo(points[0]);
-    for (size_t i = 1; i < points.size(); i++)
+    for (size_t i = 0; i < points.size(); i++)
         path.lineTo(points[i]);
+}
+
+void BodyPart::close_path()
+{
+    this->path.closeSubpath();
 }

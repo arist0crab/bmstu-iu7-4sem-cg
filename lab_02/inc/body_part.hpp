@@ -35,6 +35,7 @@ class BodyPart
         void add_arc(const double center_x, const double center_y, const double width, const double height, const double p1_x, const double p1_y, const double p2_x, const double p2_y);
         void add_bezier_four_points(const double p1_x, const double p1_y, const double p2_x, const double p2_y, const double p3_x, const double p3_y, const double p4_x, const double p4_y);
         void add_polyline(const std::vector<QPointF> &points);
+        void close_path();
 
         status_t draw(QPainter &painter) const;
         bool bodypart_contains_no_points() const;

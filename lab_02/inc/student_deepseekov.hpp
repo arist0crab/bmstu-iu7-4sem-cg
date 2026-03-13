@@ -16,11 +16,15 @@ class StudentDeepseekov
 
         // TODO вынести центры в константы
         BodyPart body{76.7, 72.7};  // тело (хвост, пузо, плавники)
+        BodyPart lower_fin{118, 20};  // нижний плавник
+        BodyPart higher_fin{72, 122};  // верхний плавник
         // Body eye;  // глаз
         // Body eyebrow;  // роскошная бровь
         // Body belly; // пятно на пузе
 
         void build_body();
+        void build_lower_fin();
+        // void build_higher_fin();
         // void build_eye();
         // void build_eyebrow();
         // void build_belly();
