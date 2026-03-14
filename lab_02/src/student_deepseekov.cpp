@@ -8,6 +8,7 @@ StudentDeepseekov::StudentDeepseekov()
     build_higher_fin();
     build_tail();
     build_body();
+    build_belly();
     // build_eye();
     // build_eyebrow();
     // build_eyebrow();
@@ -22,23 +23,37 @@ status_t StudentDeepseekov::draw(QPainter &painter)
     this->higher_fin.draw(painter);
     this->body.draw(painter);
     this->tail.draw(painter);
+    this->belly.draw(painter);
 
     return SUCCESS_CODE;
+}
+
+
+void StudentDeepseekov::build_belly()
+{
+    this->belly.set_color(DEEPSEEKOV_SPOT);
+    this->belly.add_bezier_four_points(98, 17.5, 79, 28.5, 69.5, 40.5);
+    this->belly.add_arc(67, 38, 8, 8, 69.5, 40.5, 64, 35, false);
+    this->belly.add_arc(60.5, 31, 12, 12, 64, 35, 58, 26.5);
+    this->belly.add_bezier_four_points(27, 44.5, 22, 54.5, 23, 85);
+    this->belly.add_bezier_four_points(85, 95, 80.5, 23.5, 108, 23);
 }
 
 
 void StudentDeepseekov::build_lower_fin()
 {
     this->lower_fin.set_color(DEEPSEEKOV_SKIN);
-    this->lower_fin.add_bezier_four_points(118, 20, 123, 14.5, 162, 20, 128, 30);
+    this->lower_fin.add_bezier_four_points(123, 14.5, 162, 20, 128, 30);
 }
+
 
 void StudentDeepseekov::build_higher_fin()
 {
     this->higher_fin.set_color(DEEPSEEKOV_SKIN);
     this->higher_fin.add_arc(99.5, 116, 18, 18, 93, 111.5, 99, 124.5);
-    this->higher_fin.add_bezier_four_points(99, 124.5, 92, 130.5, 81.5, 122, 72, 122);
+    this->higher_fin.add_bezier_four_points(92, 130.5, 81.5, 122, 72, 122);
 }
+
 
 void StudentDeepseekov::build_body()
 {

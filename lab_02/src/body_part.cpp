@@ -97,9 +97,15 @@ ellipse_quarter_t BodyPart::calculate_ellipse_point_quarter(const double center_
     return FIRST;
 }
 
-void BodyPart::add_bezier_four_points(const double p1_x, const double p1_y, const double p2_x, const double p2_y, const double p3_x, const double p3_y, const double p4_x, const double p4_y)
+void BodyPart::add_bezier_four_points(const double p2_x, const double p2_y, const double p3_x, const double p3_y, const double p4_x, const double p4_y)
 {
     this->path.cubicTo(p2_x, p2_y, p3_x, p3_y, p4_x, p4_y);
+}
+
+
+void BodyPart::add_bezier_three_points(const double p2_x, const double p2_y, const double p3_x, const double p3_y)
+{
+    this->path.quadTo(p2_x, p2_y, p3_x, p3_y);
 }
 
 

@@ -21,7 +21,7 @@ class StudentDeepseekov
         BodyPart tail{129, 82.5};
         // Body eye;  // глаз
         // Body eyebrow;  // роскошная бровь
-        // Body belly; // пятно на пузе
+        BodyPart belly{108, 23}; // пятно на пузе
 
         void build_body();
         void build_tail();
@@ -29,7 +29,7 @@ class StudentDeepseekov
         void build_higher_fin();
         // void build_eye();
         // void build_eyebrow();
-        // void build_belly();
+        void build_belly();
 
     public:
         StudentDeepseekov();
