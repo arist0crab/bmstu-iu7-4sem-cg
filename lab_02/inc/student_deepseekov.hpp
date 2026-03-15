@@ -19,7 +19,7 @@ class StudentDeepseekov
         BodyPart lower_fin{118, 20};  // нижний плавник
         BodyPart higher_fin{72, 122};  // верхний плавник
         BodyPart tail{129, 82.5};
-        // Body eye;  // глаз
+        BodyPart eye{97, 71.5};  // глаз
         BodyPart eyebrow{94, 76};  // роскошная бровь
         BodyPart belly{108, 23}; // пятно на пузе
 
@@ -27,7 +27,7 @@ class StudentDeepseekov
         void build_tail();
         void build_lower_fin();
         void build_higher_fin();
-        // void build_eye();
+        void build_eye();
         void build_eyebrow();
         void build_belly();
 

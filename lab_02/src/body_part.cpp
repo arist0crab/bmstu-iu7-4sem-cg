@@ -118,8 +118,35 @@ void BodyPart::add_polyline(const std::vector<QPointF> &points)
         path.lineTo(points[i]);
 }
 
-void BodyPart::unit_body_part_pathes(BodyPart &body_part)
+
+void BodyPart::add_ellipse(const double center_x, const double center_y, const double radius_x, const double radius_y, const double angle_deg)
 {
-    this->set_color(body_part.color);
-    this->path.connectPath(body_part.path);
+    const size_t SEGMENTS_QUANTITY = 720;
+
+    const double angle_rad = angle_deg * M_PI / 180.0;
+    const double cos_a = cos(angle_rad);
+    const double sin_a = sin(angle_rad);
+    
+    double t = 0.0;
+    double x = radius_x * cos(t);
+    double y = radius_y * sin(t);
+    
+    double x_rot = x * cos_a - y * sin_a;
+    double y_rot = x * sin_a + y * cos_a;
+    
+    this->path.moveTo(center_x + x_rot, center_y + y_rot);
+    
+    for (int i = 1; i <= SEGMENTS_QUANTITY; ++i) {
+        double t = 2.0 * M_PI * i / SEGMENTS_QUANTITY;
+        
+        double x = radius_x * cos(t);
+        double y = radius_y * sin(t);
+        
+        double x_rot = x * cos_a - y * sin_a;
+        double y_rot = x * sin_a + y * cos_a;
+        
+        this->path.lineTo(center_x + x_rot, center_y + y_rot);
+    }
+    
+    this->path.closeSubpath();
 }
