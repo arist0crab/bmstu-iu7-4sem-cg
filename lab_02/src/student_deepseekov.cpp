@@ -10,8 +10,7 @@ StudentDeepseekov::StudentDeepseekov()
     build_body();
     build_belly();
     // build_eye();
-    // build_eyebrow();
-    // build_eyebrow();
+    build_eyebrow();
 }
 
 StudentDeepseekov::~StudentDeepseekov() {};
@@ -24,6 +23,7 @@ status_t StudentDeepseekov::draw(QPainter &painter)
     this->body.draw(painter);
     this->tail.draw(painter);
     this->belly.draw(painter);
+    this->eyebrow.draw(painter);
 
     return SUCCESS_CODE;
 }
@@ -37,6 +37,16 @@ void StudentDeepseekov::build_belly()
     this->belly.add_arc(60.5, 31, 12, 12, 64, 35, 58, 26.5);
     this->belly.add_bezier_four_points(27, 44.5, 22, 54.5, 23, 85);
     this->belly.add_bezier_four_points(85, 95, 80.5, 23.5, 108, 23);
+}
+
+
+void StudentDeepseekov::build_eyebrow()
+{
+    this->eyebrow.set_color(DEEPSEEKOV_SPOT);
+    this->eyebrow.add_arc(97, 71.5, 12, 12, 94, 76, 102.5, 71);
+    this->eyebrow.add_bezier_three_points(101, 56.5, 119, 60);
+    this->eyebrow.add_bezier_three_points(116, 72.5, 103.5, 81);
+    this->eyebrow.add_arc(100, 76, 13, 13, 103.5, 81, 94, 76, false);
 }
 
 
